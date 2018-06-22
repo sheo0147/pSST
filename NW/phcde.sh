@@ -1,6 +1,9 @@
 #!/bin/sh
-##############################################################################
-# chk_ICMP_DNS.sh
+#
+# phcde.sh              : Ping Host and Check DNS Entry
+#
+#  @(#) phcde.sh : Ping Host and Check DNS Entry
+#  
 ##############################################################################
 #
 # Need host command. (!= khost/knot host command)
@@ -9,9 +12,8 @@
 ICMP_WAIT=1
 [ `id -u` -eq 0 ] && ICMP_WAIT=0.01
 
-HOST=$(which host)
-[ "x"${HOST} == "x" ] && echo "Error: host command not found" && exit 1
-[ ${#} -ne 2 ] && echo "Error!. Need start addr, end" && exit 1
+[ -z "$(which host)" ] && echo -n "Error: host command not found" && exit 1
+[ ${#} -ne 2 ] && echo -n "Error!. Need start addr, and end octet" && exit 1
 
 addr1=$(echo ${1} | cut -d "." -f 1)
 addr2=$(echo ${1} | cut -d "." -f 2)
@@ -38,7 +40,8 @@ echo "from ${addr1}.${addr2}.${addr3}.${start} to ${addr1}.${addr2}.${addr3}.${e
 
 for i in `seq ${start} 1 ${end}`; do
   echo -n "${addr1}.${addr2}.${addr3}.${i}"
-  sudo ping -c 3 -i 0.01 ${addr1}.${addr2}.${addr3}.${i} > /dev/null
+  #sudo ping -c 3 -i ${ICMP_WAIT} ${addr1}.${addr2}.${addr3}.${i} > /dev/null
+  ping -c 3 -i ${ICMP_WAIT} ${addr1}.${addr2}.${addr3}.${i} > /dev/null
   if [ ${?} -eq 0 ]; then
     echo -n " : ok"
   else
