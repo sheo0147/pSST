@@ -9,7 +9,7 @@
 ## 内容物
 以下に、内容物を記載します。が、まともなドキュメントを書くほどの余裕はありませんから、自力で読んでいただければ。
 
-### Network関連
+### Network関連 (NW)
   * phcde.sh : Ping Host and Check DNS Entry.
     * 引数として与えた範囲のnodeに対してpingを実施
     * 各アドレスに関して逆引きと正引きを行い、一致しているかを出力する
@@ -19,3 +19,7 @@
     * BINDに同梱されているhostコマンドが必要
       * 全てのPlatformに存在するこの種のコマンドがない...のでhostコマンドを仮定
       * KnotDNS同梱のhostコマンド(khost)も対応したいが...
+
+### Certificate関連 (Cert)
+  * certupdate
+    * PREMISE.txtを参照のこと
