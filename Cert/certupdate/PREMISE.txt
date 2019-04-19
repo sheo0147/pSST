@@ -1,0 +1,47 @@
+Premise to use certupdate.
+
+0. Prerequisites
+  This script is tested on FreeBSD 11.*/12.0/12.1 ONLY.
+  - acme-client 0.1.16
+
+1. Preparation.
+  - Make Working Base Directory.
+    This directory is set to ACME_BASE shell environment variable.
+    # mkdir /some/where/certupdate
+  - Extract this scripts and configurations to Working directory.
+    # cd /some/where/certupdate
+    # git clone ....
+  - Edit configuration file.
+    # cp domains.txt.sample domain.txt
+    
+2. Network Structure example
+
+                 | +---+  |
+                 +-|Web|--+
+           +---+ | +---+  | +---------+
+Internet --|LBS|-+        +-|WorkBench|
+           +---+ | +----+ | +---------+
+             |   +-|SMTP|-+
+             |     +----+ |
+             +------------+
+                          |
+
+2.1 LBS
+  LBS works followings.
+  - Request URI includes "/.well-known/acme-challenge/*", redirect to WorkBench(WB).
+  - Any outher Web access, redirect to Web.
+  - Some email related connection redirect to SMTP.
+2.2 WB
+  - At least one ssh login to Web/LBS/SMTP without password account exist.
+    Set to DUSER.
+  - WB can connect Let's Encrypt acme server.
+  - Running web server to receive from LBS.
+    Sample nginx server directive is exist.(nginx.conf.sample)
+
+3. Set shell environment variable
+   - ACME_BASE: Working Directory.
+     Store Certificate file, key file in here. Normally this directory is not removed.
+   - DUSER: Distribute user.
+
+4. Run.
+   # /bin/sh certupdate.sh

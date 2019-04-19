@@ -1,0 +1,14 @@
+# Sample nginx server configuration file for certupdate
+server {
+    listen      10.1.255.201:80;
+    server_name _;
+    access_log  /var/log/nginx/acme-challenge.80.acc Extend;
+    error_log   /var/log/nginx/acme-challenge.80.err error;
+
+    rewrite     /.well-known/acme-challenge/(.*) /$1 last;
+
+    location / {
+        root    /Data/htdocs/acme/htdocs;
+        index   index.html;
+    }
+}

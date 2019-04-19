@@ -1,0 +1,8 @@
+# SAN define file for certupdate
+# for example.com
+# This list can include 100 FQDN.
+example.com		# main
+www.example.com		# for Web Server
+shop.example.com	# for EC-Site
+mta.example.com mda.example.com		# for Mail Servers(SMTP/IMAP/...)
+ns.example.com		# for DNS servers
