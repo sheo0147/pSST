@@ -23,3 +23,9 @@
 ### Certificate関連 (Cert)
   * certupdate
     * PREMISE.txtを参照のこと
+
+### XCP-ng関連 (XCP-ng)
+  * xcp-ng-nic-offload.sh
+    * いくつかのOSは、TCPのNICへのoffloadに問題を抱えており、この機能が利用されるとHangUpや以上な通信速度の低下が発生するなどの悪影響がある。
+    * しかし、VMごとにこの機能をいちいち設定することは管理の手間を増すことにつながるため、一律にTCP NIC OffloadをDisableするためのscriptとして本scriptを作成した
+    * 表示とDisableとEnableが実装されているが、Enableは試験をしていないので、Enableに関しては使う人は注意のこと
