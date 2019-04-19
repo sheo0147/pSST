@@ -25,6 +25,8 @@
     * PREMISE.txtを参照のこと
 
 ### XCP-ng関連 (XCP-ng)
+  * XCP-ngはXenServerから派生したXenServer互換実装
+  * XCP-ngはそのPlatformにCentOSを利用しているため、本ツール群は例外的にXCP-ngのbash環境を仮定する。
   * xcp-ng-nic-offload.sh
     * いくつかのOSは、TCPのNICへのoffloadに問題を抱えており、この機能が利用されるとHangUpや以上な通信速度の低下が発生するなどの悪影響がある。
     * しかし、VMごとにこの機能をいちいち設定することは管理の手間を増すことにつながるため、一律にTCP NIC OffloadをDisableするためのscriptとして本scriptを作成した
