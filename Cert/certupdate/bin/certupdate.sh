@@ -52,7 +52,6 @@ done
 ################################################################################
 
 TAB=$'\t'
-SAN=""
 ACME_OPTS="-bnN"
 PATH="/usr/local/bin:${PATH}"
 
@@ -106,6 +105,7 @@ cat ${DOMAINSFILE} | while read DOMS_LINE ; do
   [ ! -d ${SSL_DIR}/${DOMAIN} ]   && ${ECHO} mkdir ${SSL_DIR}/${DOMAIN}
 
   # Get Subject Alternative Names
+  SAN=""
   SANO=0
   SANC=0
   echo "" > ${SANTMP}
