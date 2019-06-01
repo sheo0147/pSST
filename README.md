@@ -24,6 +24,14 @@
   * certupdate
     * PREMISE.txtを参照のこと
 
+### Scripting Tools (Script)
+  * parse_yaml
+    * POSIX範囲で記述した、簡易YAMLパーサー
+    * 完全な実装ではないが、YAMLをパースし、Shellの環境変数に登録することができる
+    * FreeBSDでのみ試験済み
+    * AWKとShellのみで実装されている
+    * parse_yaml関数を定義してある
+
 ### XCP-ng関連 (XCP-ng)
   * XCP-ngはXenServerから派生したXenServer互換実装
   * XCP-ngはそのPlatformにCentOSを利用しているため、本ツール群は例外的にXCP-ngのbash環境を仮定する。
