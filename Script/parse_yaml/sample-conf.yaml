@@ -1,0 +1,41 @@
+# parse.sh sample YAML file.
+# 
+LESSL:				# for LE
+  dom01:	example.com
+    sans:			# List
+      - www.example.com
+      - mail.example.com
+      - imap.example.com
+      - pop.example.com
+      - smtp.example.com
+      - www2.example.com
+    dists:			# Key-Value
+      host1: 192.0.2.130
+      host2: 192.0.2.131
+  dom02:	example.net	# List
+    sans: [ www.example.net blog.example.net wiki.example.net redmine.example.net ]
+    dists:
+      - 192.0.2.130
+      - 192.0.2.131
+  dom03:        example.org
+    dists:
+      - 192.0.2.132
+      - 192.0.2.133
+
+DKIM:
+  dom_1: example.com
+    description: "example.com DKIM configuration"
+    frequncy:  7d
+    expire:   28d
+    ns:       dns.example.net
+    mta:
+      - 192.0.2.121
+      - 192.0.2.122
+  dom_2: example.net
+    description: example.net DKIM configuration
+    frequncy:  14d
+    expire:   21d
+    ns:       dns.example.net
+    mta:
+      - 192.0.2.123
+      - 192.0.2.124
