@@ -31,6 +31,7 @@
     * FreeBSDでのみ試験済み
     * AWKとShellのみで実装されている
     * parse_yaml関数を定義してある
+    * 2 space indentにのみ対応
 
 ### XCP-ng関連 (XCP-ng)
   * XCP-ngはXenServerから派生したXenServer互換実装
