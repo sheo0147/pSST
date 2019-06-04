@@ -5,7 +5,7 @@ parse_yaml() { # Usage: parse_yaml file EnvPrefix
     {
       sub(/[\t ]*#.*$/,"",$0)
       if(length($0) == 0) { next }
-      LINE=$0; sub(/[\t ]+/,"",LINE)
+      LINE=$0; sub(/^[\t ]+/,"",LINE)
       INDENT=(length($0)-length(LINE))/2
       KEY=LINE; sub(/:.*/,"",KEY)
       VALUE=LINE; sub(/[^:]*:[\t ]*/,"",VALUE)
