@@ -1,0 +1,6 @@
+# certupdate configuration file
+# format: shell env. definition manner.
+#
+__DUSER="distribute_user"		# use ssh
+__HOME="/var/tmp/certupdate"		# Certificate storage and home.
+__WEBR="${__HOME}/htdocs"		# WebRootDir for ACME Challenge.

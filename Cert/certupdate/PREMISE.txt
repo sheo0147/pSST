@@ -1,18 +1,21 @@
 Premise to use certupdate.
 
 0. Prerequisites
-  This script is tested on FreeBSD 11.*/12.0/12.1 ONLY.
-  - acme-client 0.1.16
+  This script is tested on FreeBSD 12.1 ONLY. (should work on any unix like OSs)
+  - Use https://github.com/Neilpang/acme.sh (General)
+  - Use ports/security/acme.sh (FreeBSD)
 
 1. Preparation.
   - Make Working Base Directory.
-    This directory is set to ACME_BASE shell environment variable.
-    # mkdir /some/where/certupdate
-  - Extract this scripts and configurations to Working directory.
-    # cd /some/where/certupdate
-    # git clone ....
+    1. set to ACME_BASE shell env.
+    2. certupdate use ${ACME_BASE} or current directory to BASE.
+    # mkdir /var/tmp/certupdate; export ACME_BASE="/var/tmp/certupdate
+  - Extract this scripts and configurations to ${ACME_BASE} directory.
+    # cd ${ACME_BASE}
+    # cp -r /some/where/pSST/Cert/certupdate/* .
   - Edit configuration file.
-    # cp domains.txt.sample domain.txt
+    # cp domains.yaml.sample domains.yaml
+    # vi ...
     
 2. Network Structure example
 
@@ -41,7 +44,6 @@ Internet --|LBS|-+        +-|WorkBench|
 3. Set shell environment variable
    - ACME_BASE: Working Directory.
      Store Certificate file, key file in here. Normally this directory is not removed.
-   - DUSER: Distribute user.
 
 4. Run.
    # /bin/sh certupdate.sh

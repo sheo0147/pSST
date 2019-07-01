@@ -1,4 +1,4 @@
-# certupdate configuration file
+# certupdate target domain configuration file.
 # format: domain|server:dir server:dir ...
 #
 example.com|192.0.2.80:/usr/local/etc/Certs 198.51.100.80:/usr/local/etc/Certs

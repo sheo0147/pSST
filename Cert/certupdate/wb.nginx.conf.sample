@@ -1,4 +1,5 @@
 # Sample nginx server configuration file for certupdate
+# This file locates WorkBench machine.
 server {
     listen      10.1.255.201:80;
     server_name _;
@@ -8,7 +9,7 @@ server {
     rewrite     /.well-known/acme-challenge/(.*) /$1 last;
 
     location / {
-        root    /Data/htdocs/acme/htdocs;
+        root    /var/tmp/certupdate/htdocs;
         index   index.html;
     }
 }

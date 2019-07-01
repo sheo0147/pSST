@@ -1,0 +1,39 @@
+# Sample nginx server configuration file for certupdate
+# This configuration add to LBS
+
+upstream ACME_LE {
+  server	198.51.100.1;	# WorkBench
+}
+
+server {
+  listen	192.0.2.80:80
+  server_name	example.com;
+  server_name	www.example.com;
+  access_log	off;
+
+  location	^~	/.well-known/acme-challenge/ {
+    proxy_pass	http://ACME_LE;
+  }
+
+  location / {
+    return	301	https://$host$request_uri;
+  }
+}
+
+server {	# Initialy this section is not needed.
+  listen	192.0.2.80:443;
+  #listen	192.0.2.80:443 ssl http2;
+  server_name	example.com;
+  server_name	www.example.com;
+
+  #ssl_certificate     /some/where/Certs/example.com.cert;
+  #ssl_certificate_key /some/where/Certs/example.com.key;
+
+  location	^~	/.well-known/acme-challenge/ {
+    proxy_pass	http://ACME_LE;
+  }
+
+  location / {
+    root	/some/where/example/htdocs;
+  }
+}
