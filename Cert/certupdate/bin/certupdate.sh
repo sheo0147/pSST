@@ -124,7 +124,7 @@ fi
 . ${__CONF}
 [ ${?} -ne 0 ] && echo "Error: Configuration file ${__CONF} is somthing wrong. check it." && exit 1
 
-[ -n "${__HOME_TMP}" ] && __HOME=${__HOME_TMP%/} || __HOME=${PWD%/}
+[ -n "${__HOME_TMP}" ] && __HOME=${__HOME_TMP%/}
 [ -z "${__DOMF_TMP}" ] && __DOMF="${__HOME}/domains.conf"
 [ -z "${__WEBR_TMP}" ] && __WEBR="${__HOME}/htdocs"
 __WORK="${__HOME}/CERTS"
