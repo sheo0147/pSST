@@ -231,7 +231,7 @@ while read __LINE__; do
   # issue or renew certs.
   if [ "${__ACME}" -ne 0 ]; then
 
-    __ACME_OPTS__="${__ACME_ACTION} ${__SAN__} --home ${__WORK} --log ${__WORK}/acme.sh.log"
+    __ACME_OPTS__="${__ACME_ACTION} ${__SAN__} --home ${__WORK} --log ${__WORK}/acme.sh.log --set-default-ca --server letsencrypt"
     __ACME_OPTS_WEB__="--webroot ${__WEBR}"
     __ACME_OPTS_CF__=""
 
