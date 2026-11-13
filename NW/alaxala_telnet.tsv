@@ -1,0 +1,12 @@
+# Prompt \t input strings \t Visible \t output file name
+#        \t (print \n)			# input CRLF
+login	username
+Passw	Top_Secret00
+swm>	show ver	p	./vers.txt
+swm>	enable
+Passw	Ultra_Secret!99
+swm#	set terminal pager disable
+swm#	show run	p
+swm#	set terminal pager enable
+swm#	exit
+swm>	exit

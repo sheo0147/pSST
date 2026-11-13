@@ -1,0 +1,8 @@
+# Prompt \t input strings \t Visible \t output file name
+#            \t (print \n)	# input CRLF
+passw	Ultra_Secret!99
+sw1-DSK>	show ver	p	./vers.txt
+sw1-DSK>	enable
+sw1-DSK#	terminal length 0
+sw1-DSK#	show run	p
+sw1-DSK#	exit
