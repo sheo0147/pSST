@@ -47,7 +47,7 @@ elif [ "$1" == "-d" ]; then	# set TCP NIC offload disable.
     xe vif-param-set uuid=$VIFUUID other-config:ethtool-tso="off"
     xe vif-param-set uuid=$VIFUUID other-config:ethtool-sg="off"
     xe vif-param-set uuid=$VIFUUID other-config:ethtool-tx="off"
-    xe vif-param-set uuid=$VIFUUID other-config:ethtool-rx="off"			
+    xe vif-param-set uuid=$VIFUUID other-config:ethtool-rx="off"
   done
   echo "=== ip link ==="
   for VIF in `ip link show | grep -P 'vif\d+\.\d+' | grep "qlen 32" | cut -d":" -f2`; do
